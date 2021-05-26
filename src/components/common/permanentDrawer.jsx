@@ -24,10 +24,15 @@ const useStyles = makeStyles((theme) => ({
   },
   list: {
     margin: "auto",
+    
   },
   listitems: {
     textAlign: "center",
   },
+  link: {
+    textDecoration: "none",
+    color: "inherit",
+  }
 }));
 
 export default function PermanentDrawerLeft() {
@@ -36,10 +41,6 @@ export default function PermanentDrawerLeft() {
     {
       text: "Home",
       url:'/'
-    },
-    {
-      text: "A propos de moi",
-      url:'/aboutme'
     },
     {
       text: "Compétences",
@@ -67,7 +68,7 @@ export default function PermanentDrawerLeft() {
     >
       <List className={classes.list}>
         {itemsList.map((item, index) => (
-          <Link to = {item.url}>
+          <Link to = {item.url} className={classes.link}>
             <ListItem button key={item.text} onClick={item.onClick}>
               <ListItemText className={classes.listitems} primary={item.text} />
             </ListItem>
@@ -75,7 +76,5 @@ export default function PermanentDrawerLeft() {
         ))}
       </List>
     </Drawer>
-    
-    
   );
 }

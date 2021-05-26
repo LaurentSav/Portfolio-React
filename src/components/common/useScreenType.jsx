@@ -1,9 +1,9 @@
 import {useMediaQuery} from "react-responsive";
 
 export const useScreenType = () => {
-    const bigScreen = useMediaQuery({ minWidth: 1440 });
-    const medScreen = useMediaQuery({ minWidth: 1265});
-    const smlScreen = useMediaQuery({ minWidth: 800});
+    const bigScreen = useMediaQuery({ minWidth: 1280 });
+    const medScreen = useMediaQuery({ minWidth: 600});
+    const smlScreen = useMediaQuery({ minWidth: 0});
 
     if(bigScreen){
         return "big";
