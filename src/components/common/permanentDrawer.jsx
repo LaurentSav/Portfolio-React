@@ -8,6 +8,7 @@ import {Link} from 'react-router-dom'
 import {itemLists} from '../../routes/routes'
 import { ListItemIcon } from '@material-ui/core';
 import clsx from 'clsx';
+import { COLORS } from './colors';
 
 const drawerWidth = 200;
 
@@ -19,12 +20,9 @@ const useStyles = makeStyles((theme) => ({
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
-
-    
-
   },
   drawerPaper: {
-    background: "#0f1419", /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: COLORS.primaryBC, /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     width: drawerWidth,
     color: "white",
     

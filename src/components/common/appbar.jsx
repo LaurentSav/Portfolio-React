@@ -12,6 +12,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import {Link} from 'react-router-dom'
 import {itemLists} from '../../routes/routes'
 import { fontSize } from '@material-ui/system';
+import { COLORS } from './colors';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -25,11 +26,11 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   appbar: {
-      background: "#0f1419"
+      background: COLORS.primaryBC
   },
   drawerPaper: {
     width: 'calc(60%)',
-    background: "#0f1419", /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: COLORS.primaryBC, /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color: "white"
   },
   list: {
