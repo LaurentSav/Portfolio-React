@@ -9,22 +9,22 @@ const itemLists = [
     {
       text: "Home",
       url:'/',
-      icon: <HomeIcon/>
+      icon: <HomeIcon style={{fontSize: "2rem", padding: 10}}/>
     },
     {
-      text: "Compétences",
+      text: "Skills",
       url:'/skills',
-      icon: <DvrIcon/>
+      icon: <DvrIcon style={{fontSize: "2rem", padding: 10}}/>
     },
     {
-      text: "Projets",
+      text: "Projects",
       url:'/projects',
-      icon: <ViewModuleIcon/>
+      icon: <ViewModuleIcon style={{fontSize: "2rem", padding: 10}}/>
     },
     {
-      text: "Contact",
+      text: "Contact Me!",
       url:'/contact',
-      icon: <MailIcon/>
+      icon: <MailIcon style={{fontSize: "2rem", padding: 10}}/>
     }
   ]
 

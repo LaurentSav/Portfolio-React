@@ -11,6 +11,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import {Link} from 'react-router-dom'
 import {itemLists} from '../../routes/routes'
+import { fontSize } from '@material-ui/system';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -42,17 +43,11 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "none",
     color: "inherit",
     height: 100,
-
-    "&:hover":{
-      "& $listitemsText":{
-        display: "inline-block"
-      },
-      "& $listitemsIcon":{
-        display: "none"
-      },
-
-    }
   },
+
+  pBig: {
+    fontsize: "2rem"
+  }
 }));
 
 
@@ -75,6 +70,7 @@ export default function ButtonAppBar(props) {
                 <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={handleDrawerToggle}>
                     <MenuIcon />
                 </IconButton>
+                <p>Laurent SAVIVANH</p>
             </Toolbar>
         </AppBar>
 
@@ -97,7 +93,7 @@ export default function ButtonAppBar(props) {
                     {itemsList.map((item, index) => (
                     <Link to = {item.url} className={classes.link}>
                         <ListItem button key={item.text} onClick={item.onClick}>
-                        <ListItemText className={classes.listitems} primary={item.text} />
+                          <ListItemText className={classes.listitems}><p style={{fontSize: "1.4rem"}}>{item.text}</p></ListItemText>
                         </ListItem>
                     </Link>
                     ))}
