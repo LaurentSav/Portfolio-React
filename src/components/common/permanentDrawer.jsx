@@ -1,13 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import {Link} from 'react-router-dom'
+import {itemLists} from '../../routes/routes'
+import { ListItemIcon, ThemeProvider } from '@material-ui/core';
+import theme from './theme';
 
-
-const drawerWidth = 180;
+const drawerWidth = 200;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,57 +26,71 @@ const useStyles = makeStyles((theme) => ({
   },
   list: {
     margin: "auto",
+    width: "100%",
     
   },
-  listitems: {
+  listitemsIcon: {
+    margin: "auto",
+    display: "bloc",
     textAlign: "center",
+    color: "white",
+    justifyContent: 'center',
   },
+  listitemsText: {
+    margin: "auto",
+    display: "none",
+    textAlign: "center",
+    color: "white",
+    fontSize: "2rem"
+    
+  },
+
   link: {
+    padding: 10,
     textDecoration: "none",
     color: "inherit",
-  }
+    height: 100,
+
+
+    "&:hover":{
+      "& $listitemsText":{
+        display: "inline-block",
+        
+      },
+      "& $listitemsIcon":{
+        display: "none"
+      },
+
+    }
+  },
 }));
 
 export default function PermanentDrawerLeft() {
   const classes = useStyles();
-  const itemsList = [
-    {
-      text: "Home",
-      url:'/'
-    },
-    {
-      text: "Compétences",
-      url:'/skills'
-    },
-    {
-      text: "Projets",
-      url:'/projects'
-    },
-    {
-      text: "Contact",
-      url:'/contact'
-    }
-  ]
+  const itemsList = itemLists;
 
   return (
-
-    <Drawer
-      className={classes.drawer}
-      variant="permanent"
-      classes={{
-        paper: classes.drawerPaper,
-      }}
-      anchor="left"
-    >
-      <List className={classes.list}>
-        {itemsList.map((item, index) => (
-          <Link to = {item.url} className={classes.link}>
-            <ListItem button key={item.text} onClick={item.onClick}>
-              <ListItemText className={classes.listitems} primary={item.text} />
-            </ListItem>
-          </Link>
-        ))}
-      </List>
-    </Drawer>
+    <ThemeProvider theme={theme}>
+      <Drawer
+        className={classes.drawer}
+        variant="permanent"
+        classes={{
+          paper: classes.drawerPaper,
+        }}
+        anchor="left"
+      >
+        <List className={classes.list}>
+          {itemsList.map((item, index) => (
+            <Link to = {item.url} className={classes.link}>
+              <ListItem button key={item.text} onClick={item.onClick}>
+                <ListItemIcon className={classes.listitemsIcon }>{item.icon}</ListItemIcon>
+                <ListItemText className={classes.listitemsText} primary={item.text} />
+              </ListItem>
+            </Link>
+          ))}
+        </List>
+      </Drawer>
+    </ThemeProvider>
+    
   );
 }

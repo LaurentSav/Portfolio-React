@@ -39,7 +39,7 @@ function App() {
           <div>
             <Switch>
               <Route exact path ="/">
-                <h1>HOME</h1><h1>HOME</h1><h1>HOME</h1><h1>HOME</h1><h1>HOME</h1><h1>HOME</h1><h1>HOME</h1><h1>HOME</h1><h1>HOME</h1><h1>HOME</h1><h1>HOME</h1><h1>HOME</h1><h1>HOME</h1><h1>HOME</h1><h1>HOME</h1><h1>HOME</h1><h1>HOME</h1>
+                <h1>HOME</h1>
               </Route>
               <Route exact path = "/skills">
                 <h1>COMPETENCES</h1>

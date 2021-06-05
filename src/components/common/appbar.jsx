@@ -10,6 +10,8 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import {Link} from 'react-router-dom'
+import {itemLists} from '../../routes/routes'
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,8 +41,22 @@ const useStyles = makeStyles((theme) => ({
   link: {
     textDecoration: "none",
     color: "inherit",
-  }
+    height: 100,
+
+    "&:hover":{
+      "& $listitemsText":{
+        display: "inline-block"
+      },
+      "& $listitemsIcon":{
+        display: "none"
+      },
+
+    }
+  },
 }));
+
+
+
 
 export default function ButtonAppBar(props) {
   const classes = useStyles();
@@ -50,65 +66,45 @@ export default function ButtonAppBar(props) {
     setMobileOpen(!mobileOpen);
   };
 
-  const itemsList = [
-    {
-      text: "Home",
-      url:'/'
-    },
-    {
-      text: "A propos de moi",
-      url:'/aboutme'
-    },
-    {
-      text: "Compétences",
-      url:'/skills'
-    },
-    {
-      text: "Projets",
-      url:'/projects'
-    },
-    {
-      text: "Contact",
-      url:'/contact'
-    }
-  ]
+  const itemsList = itemLists;
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" className={classes.appbar}>
-        <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={handleDrawerToggle}>
-            <MenuIcon />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-      <Hidden>
+        <AppBar position="static" className={classes.appbar}>
+            <Toolbar>
+                <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={handleDrawerToggle}>
+                    <MenuIcon />
+                </IconButton>
+            </Toolbar>
+        </AppBar>
 
-        <Drawer
-        className={classes.drawer}
-        variant="temporary"
-        classes={{
-            paper: classes.drawerPaper,
-        }}
-        anchor="left"
-        open={mobileOpen}
-        onClose={handleDrawerToggle}
-        ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-        >
-            <List className={classes.list}>
-                {itemsList.map((item, index) => (
-                <Link to = {item.url} className={classes.link}>
-                    <ListItem button key={item.text} onClick={item.onClick}>
-                    <ListItemText className={classes.listitems} primary={item.text} />
-                    </ListItem>
-                </Link>
-                ))}
-            </List>
-        </Drawer>
+        <Hidden>
 
-      </Hidden>
+            <Drawer
+            className={classes.drawer}
+            variant="temporary"
+            classes={{
+                paper: classes.drawerPaper,
+            }}
+            anchor="left"
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            ModalProps={{
+                keepMounted: true, // Better open performance on mobile.
+            }}
+            >
+                <List className={classes.list}>
+                    {itemsList.map((item, index) => (
+                    <Link to = {item.url} className={classes.link}>
+                        <ListItem button key={item.text} onClick={item.onClick}>
+                        <ListItemText className={classes.listitems} primary={item.text} />
+                        </ListItem>
+                    </Link>
+                    ))}
+                </List>
+            </Drawer>
+
+        </Hidden>
     </div>
   );
 }
