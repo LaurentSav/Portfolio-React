@@ -1,10 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 body {
+  min-height: 100%;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #12181e;
+}
+
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+  font-family: 'Lato', sans-serif;
 }
 
 code {
@@ -12,12 +22,9 @@ code {
     monospace;
 }
 
-html, body, #root, .App{
-  min-height: 100%;
-  background: #12181e;
+
+body > #root > div {
+  height: 100vh;
+  font-family: 'Lato', sans-serif;
 }
 
-.App{
-  
-   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */;
-}

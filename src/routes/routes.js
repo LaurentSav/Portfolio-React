@@ -4,6 +4,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import ViewModuleIcon from '@material-ui/icons/ViewModule';
 import MailIcon from '@material-ui/icons/Mail';
 import DvrIcon from '@material-ui/icons/Dvr';
+import Routes from '../pages/routes';
 
 const itemLists = [
     {
@@ -28,4 +29,4 @@ const itemLists = [
     }
   ]
 
-export {itemLists};
+export {itemLists, Routes};
