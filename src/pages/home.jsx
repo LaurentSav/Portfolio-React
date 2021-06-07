@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 import React from "react";
-import { useScreenType } from './../components/common/useScreenType';
+import profilPic from './../assets/Profil_pic.jpeg'
 
 const useStyles = makeStyles((theme) => ({
 
@@ -20,12 +20,18 @@ const useStyles = makeStyles((theme) => ({
         alignItems: "center"
     },
 
+    content2:{
+        height: "100vh",
+        width: "80%",
+        marginLeft: "10%",
+    },
+
     name: {
         display: "block",
         fontSizeAdjust: "1",
     },
     sousname:{
-        color: "#ccd5ae"
+        color: "#e2f1f8"
     },
     page1Left:{
         order: 1,
@@ -34,6 +40,11 @@ const useStyles = makeStyles((theme) => ({
     page1Right:{
         order: 2,
         flex: 2
+    },
+
+    profilpic:{
+        borderradius: "5px",
+        height: "40vh"
     }
     
 
@@ -76,7 +87,6 @@ export default function Home(props){
     })
     */
 
-    const screenType = useScreenType();
     const classes = useStyles();
 
     return (
@@ -84,27 +94,28 @@ export default function Home(props){
             <div id={1} className= {classes.pages}>
                 <div className= {classes.content}>
                     <div className= {classes.page1Left}>
-                        <h1 className={classes.name}>LAURENT SAVIVANH</h1>
-                        <h2 className={classes.sousname}>Software Developer</h2>
-                    </div>
-                    <div className={classes.page1Right}>
-                        <h2 >OUIIIIIIIIIIIII</h2>
+                        <h1 className={classes.name}>Hi, I'm <span style={{color: "#7e57c2"}}>Laurent Savivanh</span></h1>
+                        <h2 className={classes.sousname}>I'm a French Engineering Student in <span style={{color: "#42a5f5"}}>Software Development</span></h2>
                     </div>
                     
                 </div>
             </div>
             <div id={2} className= {classes.pages}>
-            <div className= {classes.content}>
-                    <h1>HOME</h1>
+                
+            <div className= {classes.content2}>
+                <h1>About Me</h1>
+                    <div>
+                        <img className={classes.profilpic} src={profilPic} alt="profilPic"></img>
+                        <h2></h2>
+
+                    </div>
                 </div>
             </div>
             <div id={3} className= {classes.pages}>
-                <div className= {classes.content}>
+                <div className= {classes.content2}>
                     <h1>HOME</h1>
                 </div>
             </div>
         </div>
-        
-        
     )
 }
